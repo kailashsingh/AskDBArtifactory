@@ -14,7 +14,7 @@ public class DBArtifactoryWindow implements ToolWindowFactory {
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
         Component component = toolWindow.getComponent();
         JTextArea textArea = new JTextArea();
-
+        //test-commit
         component.getParent().add(textArea);
     }
 }
