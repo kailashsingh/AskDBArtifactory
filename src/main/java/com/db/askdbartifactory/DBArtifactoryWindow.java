@@ -7,6 +7,8 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class DBArtifactoryWindow implements ToolWindowFactory {
 
@@ -22,28 +24,27 @@ public class DBArtifactoryWindow implements ToolWindowFactory {
         mainPanel.setSize(new Dimension(1200,600));
         mainPanel.setLayout(new FlowLayout(FlowLayout.LEFT,10,20));
         JLabel groupLabel = new JLabel("Group Id:");
-        //groupLabel.setLocation(0,0);
-
-        //groupLabel.setHorizontalAlignment(JLabel.LEFT);
         JLabel artifactLabel = new JLabel("Artifact Id:");
-        //artifactLabel.setLocation(0,50);
-        //artifactLabel.setHorizontalAlignment(JLabel.LEFT);
+        JLabel versionLabel = new JLabel("Version:");
         JTextField groupText = new JTextField();
-        //groupText.setSize(100,100);
-        //groupText.setLocation(50,0);
-        //groupText.setSize(100,10);
-        //groupText.setHorizontalAlignment(JLabel.LEFT);
         JTextField artifactText = new JTextField();
-       // artifactText.setLocation(50,50);
-        //artifactText.setHorizontalAlignment(JLabel.LEFT);
+        JTextField versionText = new JTextField();
         JButton submit = new JButton("Submit");
-        //submit.setLocation(200,200);
         addComponent(mainPanel,groupLabel);
         addComponent(mainPanel,groupText);
         addComponent(mainPanel,artifactLabel);
         addComponent(mainPanel,artifactText);
+        addComponent(mainPanel,versionLabel);
+        addComponent(mainPanel,versionText);
         addComponent(mainPanel,submit);
         component.getParent().add(mainPanel);
+
+        submit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Make arti call");
+            }
+        });
     }
 
     private void addComponent(JPanel panel, Component component) {
